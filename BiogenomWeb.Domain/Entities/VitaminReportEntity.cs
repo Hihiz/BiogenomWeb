@@ -18,7 +18,7 @@ public class VitaminReportEntity
     /// <summary>
     /// Навигационное свойство отчета диагностики.
     /// </summary>
-    public ReportEntity Report { get; set; } = null!;
+    public ReportEntity? Report { get; set; }
 
     /// <summary>
     /// FK Id витамина/минерала.
@@ -28,7 +28,7 @@ public class VitaminReportEntity
     /// <summary>
     /// Навигационное свойство витаминов/минералов..
     /// </summary>
-    public VitaminEntity Vitamin { get; set; } = null!;
+    public VitaminEntity? Vitamin { get; set; }
 
     /// <summary>
     /// Текущее значение витамина/минерала.

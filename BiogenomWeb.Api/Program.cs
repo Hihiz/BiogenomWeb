@@ -1,11 +1,12 @@
 using BiogenomWeb.Application;
 using BiogenomWeb.Infrastructure;
+using BiogenomWeb.Infrastructure.Data;
 
 namespace BiogenomWeb.Api
 {
     public class Program
     {
-        private static void Main(string[] args)
+        private static async Task Main(string[] args)
         {
             var builder = WebApplication.CreateBuilder(args);
 
@@ -18,6 +19,13 @@ namespace BiogenomWeb.Api
             builder.Services.AddSwaggerGen();
 
             var app = builder.Build();
+
+            using (var scope = app.Services.CreateScope())
+            {
+                var service = scope.ServiceProvider;
+
+                await SeedData.Initializer(service);
+            }
 
             if (app.Environment.IsDevelopment())
             {
