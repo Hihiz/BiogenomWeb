@@ -20,6 +20,15 @@ namespace BiogenomWeb.Infrastructure.Data
             using ApplicationDbContext db = new ApplicationDbContext(serviceProvider
                 .GetRequiredService<DbContextOptions<ApplicationDbContext>>());
 
+            // Для инициалиазции БД с таблицами.
+            bool isDockerEnvironment = Environment.GetEnvironmentVariable("ASPNETCORE_ENVIRONMENT") == "Docker";
+
+            if (isDockerEnvironment)
+            {
+                await db.Database.EnsureDeletedAsync();
+            }
+
+
             if (!await db.Database.CanConnectAsync())
             {
                 await db.Database.EnsureCreatedAsync();
