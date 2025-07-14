@@ -6,6 +6,11 @@
 ## Схема БД
 <img width="1162" height="822" alt="image" src="https://github.com/user-attachments/assets/388b5029-7917-40f4-9297-df9d0cb236aa" />
 
+## Запуск контейнеров
+docker-compose up --build
+* UI pgAdmin - http://localhost:5050
+* backend - http://localhost:8080
+
 ### Структура таблиц
 #### RecomendationProducts
 <img width="446" height="174" alt="image" src="https://github.com/user-attachments/assets/02404a15-6973-4028-85e2-9a0958bc46d3" />
