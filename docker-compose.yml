@@ -1,0 +1,54 @@
+version: "3.9"
+
+networks:
+  dev:
+    driver: bridge
+
+services:
+  aspapp:
+    image: ${DOCKER_REGISTRY}biogenomapp
+    depends_on:
+      - "db"
+    container_name: biogenomapp-container
+    ports:
+      - "8080:80"
+    build:
+      context: .
+      dockerfile: BiogenomWeb.Api/Dockerfile
+    environment:
+      - ConnectionStrings__DefaultConnection=Server=db;Port=5432;Database=BiogenomDb;Username=postgresUser;Password=postgresPassword;
+      - ASPNETCORE_URLS=http://+:80
+      - ASPNETCORE_ENVIRONMENT=Docker
+    networks:
+      - dev
+
+  db:
+    image: postgres:latest
+    container_name: postgresDb-container
+    environment:
+      POSTGRES_USER: postgresUser
+      POSTGRES_PASSWORD: postgresPassword
+      POSTGRES_DB: BiogenomDb
+    ports:
+      - "5433:5432"
+    volumes:
+      - postgres-data:/var/lib/postgresql/data
+    networks:
+      - dev
+
+  pgadmin:
+    image: dpage/pgadmin4
+    container_name: pgadmin-container
+    restart: always
+    ports:
+      - "5050:80"
+    environment:
+      PGADMIN_DEFAULT_EMAIL: admin@admin.com
+      PGADMIN_DEFAULT_PASSWORD: admin
+    depends_on:
+      - db
+    networks:
+      - dev
+
+volumes:
+  postgres-data:

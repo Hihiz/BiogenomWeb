@@ -10,6 +10,10 @@ namespace BiogenomWeb.Api
         {
             var builder = WebApplication.CreateBuilder(args);
 
+            builder.Configuration
+                .AddJsonFile("appsettings.json")
+                .AddJsonFile($"appsettings.{builder.Environment.EnvironmentName}.json", optional: true);
+
             builder.Services.AddApplicationsServices()
                 .AddInfrastructureServices(builder.Configuration);
 
@@ -27,11 +31,8 @@ namespace BiogenomWeb.Api
                 await SeedData.Initializer(service);
             }
 
-            if (app.Environment.IsDevelopment())
-            {
-                app.UseSwagger();
-                app.UseSwaggerUI();
-            }
+            app.UseSwagger();
+            app.UseSwaggerUI();
 
             app.UseHttpsRedirection();
 
