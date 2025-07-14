@@ -24,7 +24,7 @@ jobs:
         run: dotnet restore
 
       - name: Build solution
-        run: dotnet build --no-restore --configurtion Releasea
+        run: dotnet build --no-restore --configurtion Release
 
       - name: Build Docker image
         run: docker build -t biogenomapp:latest -f BiogenomWeb.Api/Dockerfile .
