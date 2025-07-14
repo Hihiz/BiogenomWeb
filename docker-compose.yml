@@ -16,9 +16,9 @@ services:
       context: .
       dockerfile: BiogenomWeb.Api/Dockerfile
     environment:
-      - ConnectionStrings__DefaultConnection=Server=db;Port=5432;Database=BiogenomDb;Username=postgresUser;Password=postgresPassword;
+      - ConnectionStrings__DefaultConnection=${DEFAULT_CONNECTION}
       - ASPNETCORE_URLS=http://+:80
-      - ASPNETCORE_ENVIRONMENT=Docker
+      - ASPNETCORE_ENVIRONMENT=${ASPNETCORE_ENVIRONMENT}
     networks:
       - dev
 
@@ -26,9 +26,9 @@ services:
     image: postgres:latest
     container_name: postgresDb-container
     environment:
-      POSTGRES_USER: postgresUser
-      POSTGRES_PASSWORD: postgresPassword
-      POSTGRES_DB: BiogenomDb
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+      POSTGRES_DB: ${POSTGRES_DB}
     ports:
       - "5433:5432"
     volumes:
@@ -43,8 +43,8 @@ services:
     ports:
       - "5050:80"
     environment:
-      PGADMIN_DEFAULT_EMAIL: admin@admin.com
-      PGADMIN_DEFAULT_PASSWORD: admin
+      PGADMIN_DEFAULT_EMAIL: ${PGADMIN_DEFAULT_EMAIL}
+      PGADMIN_DEFAULT_PASSWORD: ${PGADMIN_DEFAULT_PASSWORD}
     depends_on:
       - db
     networks:
