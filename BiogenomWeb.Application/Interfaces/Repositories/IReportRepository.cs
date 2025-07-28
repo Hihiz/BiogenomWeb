@@ -9,7 +9,7 @@ namespace BiogenomWeb.Application.Interfaces.Repositories
     {
         /// <summary>
         /// Метод получает отчет последней диагностики.
-        /// /// </summary>
+        /// </summary>
         /// <returns>Отчет диагностики.</returns>
         Task<IEnumerable<VitaminReportEntity>> GetReportsAsync();
     }
