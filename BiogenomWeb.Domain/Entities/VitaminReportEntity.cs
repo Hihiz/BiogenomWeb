@@ -26,7 +26,7 @@ public class VitaminReportEntity
     public int VitaminId { get; set; }
 
     /// <summary>
-    /// Навигационное свойство витаминов/минералов..
+    /// Навигационное свойство витаминов/минералов.
     /// </summary>
     public VitaminEntity? Vitamin { get; set; }
 
