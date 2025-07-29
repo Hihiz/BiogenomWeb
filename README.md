@@ -2,6 +2,7 @@
  ## Стек
 * ASP.NET Core 8.0
 * EF Core
+* CI
 
 ## Схема БД
 <img width="1162" height="822" alt="image" src="https://github.com/user-attachments/assets/388b5029-7917-40f4-9297-df9d0cb236aa" />
