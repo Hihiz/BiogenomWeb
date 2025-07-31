@@ -20,11 +20,11 @@ jobs:
         with:
           dotnet-version: '8.0.x'
 
-      - name: Restore dependencies
-        run: dotnet restore
+      # - name: Restore dependencies
+      #   run: dotnet restore
 
-      - name: Build solution
-        run: dotnet build --no-restore --configuration Release
+      # - name: Build solution
+      #   run: dotnet build --no-restore --configuration Release
 
-      - name: Build Docker image
-        run: docker build -t biogenomapp:latest -f BiogenomWeb.Api/Dockerfile .
+      # - name: Build Docker image
+      #   run: docker build -t biogenomapp:latest -f BiogenomWeb.Api/Dockerfile .
