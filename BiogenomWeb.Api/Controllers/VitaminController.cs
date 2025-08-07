@@ -1,4 +1,6 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using BiogenomWeb.Application.Interfaces.Services;
+using BiogenomWeb.Domain.Entities;
+using Microsoft.AspNetCore.Mvc;
 
 namespace BiogenomWeb.Api.Controllers
 {
@@ -9,5 +11,28 @@ namespace BiogenomWeb.Api.Controllers
     [ApiController]
     public class VitaminController : ControllerBase
     {
+        private readonly IVitaminService _vitaminService;
+
+        /// <summary>
+        /// Конструктор.
+        /// </summary>
+        /// <param name="vitaminService">Сервис витаминов.</param>
+        public VitaminController(IVitaminService vitaminService)
+        {
+            _vitaminService = vitaminService;
+        }
+
+        /// <summary>
+        /// Метод получает список витаминов.
+        /// </summary>
+        /// <returns>Список витаминов.</returns>
+        [HttpGet]
+        [Route("vitamins")]
+        public async Task<IActionResult> GetVitaminsAsync()
+        {
+            IEnumerable<VitaminEntity> result = await _vitaminService.GetVitaminsAsync();
+
+            return Ok(result);
+        }
     }
 }
