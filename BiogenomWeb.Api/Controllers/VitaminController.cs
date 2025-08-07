@@ -71,5 +71,16 @@ namespace BiogenomWeb.Api.Controllers
         {
             await _vitaminService.UpdateVitaminAsync(updateVitaminInput.Id, updateVitaminInput.Title!);
         }
+
+        /// <summary>
+        /// Метод удаляет витамин.
+        /// </summary>
+        /// <param name="vitaminId">Id витамина.</param>
+        [HttpDelete]
+        [Route("vitamin")]
+        public async Task RemoveVitaminAsync([FromQuery] int vitaminId)
+        {
+            await _vitaminService.RemoveVitaminAsync(vitaminId);
+        }
     }
 }
