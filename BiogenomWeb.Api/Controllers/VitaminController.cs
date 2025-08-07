@@ -50,5 +50,15 @@ namespace BiogenomWeb.Api.Controllers
             return Ok(result);
         }
 
+        /// <summary>
+        /// Метод создает витамин
+        /// </summary>
+        /// <param name="title">Название витамина.</param>
+        [HttpPost]
+        [Route("vitamin")]
+        public async Task CreateVitaminAsync([FromBody] string title)
+        {
+            await _vitaminService.CreateVitaminAsync(title);
+        }
     }
 }
