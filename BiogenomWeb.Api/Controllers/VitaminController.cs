@@ -60,5 +60,16 @@ namespace BiogenomWeb.Api.Controllers
         {
             await _vitaminService.CreateVitaminAsync(title);
         }
+
+        /// <summary>
+        /// Метод редактирует витамин.
+        /// </summary>
+        /// <param name="updateVitaminInput">Метод редактирует витамин.</param>
+        [HttpPut]
+        [Route("vitamin")]
+        public async Task UpdateVitaminAsync([FromBody] UpdateVitaminInput updateVitaminInput)
+        {
+            await _vitaminService.UpdateVitaminAsync(updateVitaminInput.Id, updateVitaminInput.Title!);
+        }
     }
 }
