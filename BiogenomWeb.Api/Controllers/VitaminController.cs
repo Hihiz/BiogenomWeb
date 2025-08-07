@@ -1,4 +1,5 @@
-﻿using BiogenomWeb.Application.Interfaces.Services;
+﻿using BiogenomWeb.Application.Dto.Input.Vitamin;
+using BiogenomWeb.Application.Interfaces.Services;
 using BiogenomWeb.Domain.Entities;
 using Microsoft.AspNetCore.Mvc;
 
@@ -34,5 +35,20 @@ namespace BiogenomWeb.Api.Controllers
 
             return Ok(result);
         }
+
+        /// <summary>
+        /// Метод получает витамин по Id витамина.
+        /// </summary>
+        /// <param name="vitaminId">Id витамина.</param>
+        /// <returns>Витамин.</returns>
+        [HttpGet]
+        [Route("vitamin")]
+        public async Task<IActionResult> GetVitaminByVitaminIdAsync([FromQuery] int vitaminId)
+        {
+            VitaminEntity result = await _vitaminService.GetVitaminByVitaminIdAsync(vitaminId);
+
+            return Ok(result);
+        }
+
     }
 }
