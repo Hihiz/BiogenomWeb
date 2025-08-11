@@ -22,6 +22,23 @@ namespace BiogenomWeb.Infrastructure.Repositories
         }
 
         #region Публичные методы.
+
+        /// <inheritdoc />      
+        public async Task UpdateVitaminAsync(int vitaminId, string title)
+        {
+            int row = await _db.Vitamins
+                .Where(x => x.Id == vitaminId)
+                .ExecuteUpdateAsync(setters => setters
+                    .SetProperty(v => v.Title, title));
+
+            if (row <= 0)
+            {
+                throw new InvalidOperationException("Ошибка при редактировании витамина. " +
+                                                    $"VitaminId: {vitaminId}. " +
+                                                    $"Title: {title}.");
+            }
+        }
+
         /// <inheritdoc />
         public async Task RemoveVitaminAsync(int vitaminId)
         {
