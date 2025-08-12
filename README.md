@@ -12,10 +12,17 @@
 ## Схема БД
 <img width="1162" height="822" alt="image" src="https://github.com/user-attachments/assets/388b5029-7917-40f4-9297-df9d0cb236aa" />
 
+## Swagger
+<img width="810" height="711" alt="image" src="https://github.com/user-attachments/assets/c808c6ff-1a7d-4c9f-a031-45e8b76a235d" />
+
+## UI
+
+
 ## Запуск контейнеров
 docker-compose up --build
 * UI pgAdmin - http://localhost:5050
 * backend - http://localhost:8080/swagger
+* frontend - http://localhost:8081
 
 ### Структура таблиц
 #### RecomendationProducts
@@ -31,4 +38,5 @@ docker-compose up --build
 <img width="278" height="176" alt="image" src="https://github.com/user-attachments/assets/b812717b-c583-4abd-8aca-3faa583022d3" />
 
 ### Пример ответа
-<img width="498" height="453" alt="image" src="https://github.com/user-attachments/assets/d79f447f-b5a5-4b54-be50-71de70baf580" />
+<img width="498" height="440" alt="image" src="https://github.com/user-attachments/assets/5d06cbba-cdc2-4ce9-9c3a-d418b8698974" />
+
