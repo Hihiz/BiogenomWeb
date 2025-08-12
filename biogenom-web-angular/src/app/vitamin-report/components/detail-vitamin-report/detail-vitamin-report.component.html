@@ -1,0 +1,50 @@
+<h1>Детали отчета диагностики: {{ vitaminReportId }}</h1>
+
+<p *ngIf="!detailVitaminReport">Отчет диагностики не найден !</p>
+
+<table
+  *ngIf="detailVitaminReport"
+  class="table table-sm table-striped table-bordered m-2"
+>
+  <thead>
+    <tr>
+    <th>Id</th>
+      <th>ReportId</th>
+      <th>VitaminId</th>
+      <th>VitaminTitle</th>
+      <th>Текущее значение</th>
+      <th>Норма</th>
+      <th>Получить из питания</th>
+      <th>Получить из БАДа</th>
+      <th>Дифицит</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>{{ detailVitaminReport.id }}</td>
+      <td>{{ detailVitaminReport.reportId }}</td>
+      <td>{{ detailVitaminReport.vitaminId }}</td>
+      <td>{{ detailVitaminReport.vitamin.title }}</td>
+      <td>{{ detailVitaminReport.currentValue }}</td>
+      <td>{{ detailVitaminReport.referenceValue }}</td>
+      <td>
+        {{
+          detailVitaminReport.foodValue > 0
+            ? detailVitaminReport.foodValue
+            : "Не указано"
+        }}
+      </td>
+      <td>
+        {{
+          detailVitaminReport.supplementValue > 0
+            ? detailVitaminReport.supplementValue
+            : "Не указано"
+        }}
+      </td>
+      <td>{{ detailVitaminReport.isDeficit }}</td>
+    </tr>
+  </tbody>
+</table>
+
+<br />
+<a class="btn btn-success" (click)="onGetVitaminReports()">Назад</a>
