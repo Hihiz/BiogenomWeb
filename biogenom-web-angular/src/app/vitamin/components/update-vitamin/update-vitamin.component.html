@@ -1,0 +1,32 @@
+<h1>Редактирование витамина: {{vitaminId}}</h1>
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-6">
+    <div class="mb-3">
+        <label>Id витамина:</label>
+        <input
+          type="number"
+          class="form-control"
+          [(ngModel)]="vitaminId"
+          readonly/>
+      </div>
+        <div class="mb-3">
+        <label>Название витамина:</label>
+        <input
+          type="text"
+          class="form-control"
+          [(ngModel)]="vitaminTitle"
+          placeholder="Введите название витамина"
+        />
+      </div>
+      <div class="mb-3">
+        <button (click)="onUpdateVitaminAsync()" class="btn btn-success mt-2">
+          Редактировать витамин
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <a class="btn btn-success" (click)="onGetVitamins()"> Назад </a>
+</div>
