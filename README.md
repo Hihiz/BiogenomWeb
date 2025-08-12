@@ -15,9 +15,6 @@
 ## Swagger
 <img width="810" height="711" alt="image" src="https://github.com/user-attachments/assets/c808c6ff-1a7d-4c9f-a031-45e8b76a235d" />
 
-## UI
-
-
 ## Запуск контейнеров
 docker-compose up --build
 * UI pgAdmin - http://localhost:5050
