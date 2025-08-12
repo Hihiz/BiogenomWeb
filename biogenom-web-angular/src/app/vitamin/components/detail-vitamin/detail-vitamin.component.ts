@@ -59,11 +59,6 @@ export class DetailVitaminComponent implements OnInit {
    * Функция получает детали витамина.
    */
   private async getDetailVitaminAsync() {
-    // (await this._vitaminService.getVitaminByVitaminIdAsync(this.vitaminId))
-    // .subscribe((_) => {
-    //   console.log("Детали витамина: ", this.detailVitamin$.value)
-    // });
-
     // Проверяем есть ли в сторадже запись.
     const savedDetail =
       this._storageService.get<VitaminOutput>('detailVitamin');
