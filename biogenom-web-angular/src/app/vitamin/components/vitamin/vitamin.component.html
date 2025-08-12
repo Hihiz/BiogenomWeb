@@ -1,0 +1,38 @@
+<h1>Список витаминов</h1>
+
+<a class="btn btn-success me-2" (click)="onGetVitaminReports()">
+    К списку отчетов диагностики</a>
+<a class="btn btn-outline-primary" (click)="onCreateVitamin()">
+    Добавить витамин</a>
+
+
+<table class="table table-sm table-striped table-bordered m-2">
+  <thead>
+    <tr>
+      <th>Id</th>
+      <th>Название</th>
+      <th>Действие</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let v of vitamins$.value">
+      <td class="link" (click)="onGetVitaminByVitaminId(v.id)">
+        {{ v.id }}
+      </td>
+      <td>{{ v.title }}</td>
+    <td>
+        <div class="d-flex gap-2">
+            <button class="btn btn-sm btn-outline-primary" 
+                (click)="onUpdateVitamin(v.id)">
+                <i class="bi bi-pencil"></i> Редактировать
+            </button>
+
+            <button class="btn btn-sm btn-outline-danger" 
+                (click)="onRemoveVitaminAsync(v.id)">
+                <i class="bi bi-trash"></i> Удалить
+            </button>      
+        </div>
+    </td>  
+</tr>
+  </tbody>
+</table>
