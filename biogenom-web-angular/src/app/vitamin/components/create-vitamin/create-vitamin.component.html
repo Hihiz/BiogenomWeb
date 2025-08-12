@@ -1,0 +1,24 @@
+<h1>Создание витамина</h1>
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-6">
+      <div class="mb-3">
+        <label>Название витамина:</label>
+        <input
+          type="text"
+          class="form-control"
+          [(ngModel)]="vitaminTitle"
+          placeholder="Введите название витамина"
+        />
+      </div>
+      <div class="mb-3">
+        <button (click)="onCreateVitaminAsync()" class="btn btn-success mt-2">
+          Добавить витамин
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <a class="btn btn-success" (click)="onGetVitamins()"> Назад </a>
+</div>
