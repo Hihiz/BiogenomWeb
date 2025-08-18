@@ -5,10 +5,9 @@
 * EF Core
 * CI pipeline
 * Docker
-* xUnit
+* [xUnit](#Выполнение-тестов)
   * Integration (TestContainers)
   * Unit    
-
 ---
 
 > * Получение деталей (GetVitaminById) не выполняет запрос на сервер, работает с ранее загруженным списком записей.
@@ -27,6 +26,11 @@ docker-compose up --build
 * UI pgAdmin - http://localhost:5050
 * backend - http://localhost:8080/swagger
 * frontend - http://localhost:8081
+
+## Выполнение тестов (Integration, Unit)
+* Успешное выполнение 20 тестов
+<img width="285" height="610" alt="image" src="https://github.com/user-attachments/assets/c30f156c-d204-45a2-8a3c-84c887180d3b" />
+
 
 ### Структура таблиц
 #### RecomendationProducts
