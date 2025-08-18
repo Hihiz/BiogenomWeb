@@ -5,7 +5,7 @@
 * EF Core
 * CI pipeline
 * Docker
-* [xUnit](#выполнение-тестов-integration-unit)
+* [xUnit](#выполнение-тестов-integration-unit) (успешное выполнение)
   * Integration (TestContainers)
   * Unit    
 ---
