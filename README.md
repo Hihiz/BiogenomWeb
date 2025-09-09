@@ -4,6 +4,7 @@
 * Angular
 * EF Core
 * CI pipeline
+* TestContainers
 * Docker
 * [xUnit](#выполнение-тестов-integration-unit) (успешное выполнение)
   * Integration (TestContainers)
